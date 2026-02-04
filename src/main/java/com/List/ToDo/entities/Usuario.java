@@ -77,6 +77,7 @@ public class Usuario {
     }
 
     public void setTarefas(List<Tarefa> tarefas) {
+
         this.tarefas = tarefas;
     }
 }
