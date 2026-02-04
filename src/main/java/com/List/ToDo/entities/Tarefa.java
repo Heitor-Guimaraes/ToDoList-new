@@ -40,6 +40,7 @@ public class Tarefa {
         this.descricao = dto.getDescricao();
         this.status = Status.PENDENTE;
         this.dtInicio = LocalDate.now();
+        this.dtFim = dto.getDtFim();
     }
 
     public Tarefa(){}
