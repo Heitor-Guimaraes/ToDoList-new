@@ -68,7 +68,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "usuario")
     private List<Tarefa> tarefas;
 

@@ -23,7 +23,7 @@ public class UsuarioController {
 
     }
 
-    @GetMapping
+    @GetMapping("list/{id}")
     public ResponseEntity<?> listarUsuario() {
         return ResponseEntity.ok(usuarioService.listarUsuario());
     }
