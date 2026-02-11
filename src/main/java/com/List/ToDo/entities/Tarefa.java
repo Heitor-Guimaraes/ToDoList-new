@@ -19,6 +19,7 @@ public class Tarefa {
     private LocalDate dtInicio;
     private LocalDate dtFim;
 
+
 //    public Tarefa(long id, String nome, String descricao, Status status, LocalDate dtInicio, LocalDate dtFim) {
 //        this.id = id;
 //        this.nome = nome;
