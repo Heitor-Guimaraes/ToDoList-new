@@ -14,6 +14,7 @@ public class Tarefa {
 
     private String nome;
     private String descricao;
+    @Enumerated(EnumType.STRING)
     private Status status;
     private LocalDate dtInicio;
     private LocalDate dtFim;

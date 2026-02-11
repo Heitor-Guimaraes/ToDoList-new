@@ -39,8 +39,12 @@ public class TarefaService {
         return tarefaRepository.findByUsuarioId(usuarioId);
     }
 
-    public void deletarTarefa(Long id) {
+    public boolean deletarTarefa(Long id) {
+        if (!tarefaRepository.existsById(id)) {
+            return false;
+        }
         tarefaRepository.deleteById(id);
+        return true;
     }
 
 

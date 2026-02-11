@@ -34,14 +34,12 @@ public class UsuarioService {
         return usuarioExiste.map(UsuarioDto::new).orElse(null);
     }
 
-    public String deletar(Long id) {
-
-        if (usuarioRepository.existsById(id)) {
-            usuarioRepository.deleteById(id);
-            return "Excluído com sucesso!";
-        } else {
-            return "Esse ID não existe";
+    public boolean deletar(Long id) {
+        if (!usuarioRepository.existsById(id)) {
+            return false;
         }
+        usuarioRepository.deleteById(id);
+        return true;
     }
 
     public String atualizar(Long id) {

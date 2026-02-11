@@ -18,6 +18,7 @@ public class Usuario {
     @Column(unique = true)
     private String email;
 
+    @JsonIgnore
     private String senha;
 
     public Usuario(){
@@ -69,6 +70,7 @@ public class Usuario {
     }
 
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Tarefa> tarefas;
 

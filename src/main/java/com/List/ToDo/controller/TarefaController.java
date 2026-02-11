@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("tarefa")
+@RestController
 public class TarefaController {
 
     private final TarefaService tarefaService;
@@ -40,13 +40,15 @@ public class TarefaController {
     @DeleteMapping("/tarefas/{id}")
     public ResponseEntity<?> deletar(@PathVariable Long id) {
 
-        tarefaService.deletarTarefa(id);
-
+        boolean deletada = tarefaService.deletarTarefa(id);
+        if (!deletada) {
+            return ResponseEntity.status(404).body("Tarefa não encontrada");
+        }
         return ResponseEntity.ok("Tarefa deletada com sucesso");
     }
 
     @PutMapping("/tarefas/{id}")
-    public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody TarefaDto dto) {
+    public ResponseEntity<?> atualizar(@PathVariable Long id, @Valid @RequestBody TarefaDto dto) {
         Tarefa tarefaAtualizada = tarefaService.atualizarTarefa(id, dto);
 
         if (tarefaAtualizada == null) {

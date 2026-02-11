@@ -23,7 +23,7 @@ public class UsuarioController {
 
     }
 
-    @GetMapping("list/{id}")
+    @GetMapping("list")
     public ResponseEntity<?> listarUsuario() {
         return ResponseEntity.ok(usuarioService.listarUsuario());
     }
@@ -39,6 +39,10 @@ public class UsuarioController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletar(@PathVariable Long id) {
-        return ResponseEntity.ok(usuarioService.deletar(id));
+        boolean deletado = usuarioService.deletar(id);
+        if (!deletado) {
+            return ResponseEntity.status(404).body("Usuario não encontrado");
+        }
+        return ResponseEntity.ok("Excluído com sucesso!");
     }
 }
